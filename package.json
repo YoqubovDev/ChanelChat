@@ -10,18 +10,24 @@
         "test": "echo \"Error: no test specified\" && exit 1",
         "dev": "vite",
         "build": "vite build",
-        "prod": "vite build --prod"
+        "prod": "vite build"
     },
     "keywords": [],
     "author": "",
     "license": "ISC",
     "devDependencies": {
         "@popperjs/core": "^2.11.6",
-        "@vitejs/plugin-vue": "^4.5.0",
+        "@vitejs/plugin-vue": "^4.6.2",
         "bootstrap": "^5.2.3",
-        "laravel-vite-plugin": "^1.2.0",
+        "laravel-echo": "^2.0.2",
+        "laravel-vite-plugin": "^0.8.1",
+        "pusher-js": "^8.4.0",
         "sass": "^1.56.1",
-        "vite": "^6.2.5",
-        "vue": "^3.2.37"
+        "vite": "^4.5.0",
+        "vue": "^3.5.13"
+    },
+    "dependencies": {
+        "axios": "^1.8.4",
+        "vue-router": "^4.5.0"
     }
 }

@@ -1,23 +1,32 @@
-@extends('layouts.app')
+<!DOCTYPE html>
 
-@section('content')
-<div class="container">
-    <div class="row justify-content-center">
-        <div class="col-md-8">
-            <div class="card">
-                <div class="card-header">{{ __('Dashboard') }}</div>
+<head>
+    <title>Laravel + Vue Chat</title>
+    @vite(['resources/js/app.js'])
+</head>
 
-                <div class="card-body">
-                    @if (session('status'))
-                        <div class="alert alert-success" role="alert">
-                            {{ session('status') }}
-                        </div>
+<body>
+<div class="min-h-screen bg-gray-100" id="app">
+    <header >
+        @if (Route::has('login'))
+            <nav>
+                @auth
+                    <div id="app">
+                        <app :is-auth="{{ json_encode(auth()->check()) }}"
+                             :user="{{ auth()->check() ? auth()->user() : 'null' }}">>
+                        </app>
+                        { ... Logout code .. }
+                    </div>
+                @else
+                    <a href="{{ route('login') }}"> Log in </a>
+                    @if (Route::has('register'))
+                        <a href="{{ route('register') }}"> Register </a>
                     @endif
-
-                    {{ __('You are logged in!') }}
-                </div>
-            </div>
-        </div>
-    </div>
+                @endauth
+            </nav>
+        @endif
+    </header>
 </div>
-@endsection
+</body>
+
+</html>
